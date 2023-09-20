@@ -26,9 +26,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_20_033508) do
   end
 
   create_table "cards", force: :cascade do |t|
+    t.bigint "user_id"
     t.integer "konami_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "rarities", force: :cascade do |t|
